@@ -1,5 +1,5 @@
 # What to build
-DAY:=01
+DAY:=02
 
 # Compiler
 CC:=gcc
