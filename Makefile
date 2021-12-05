@@ -14,6 +14,7 @@ SHELL:=/usr/bin/sh
 SRC:=$(DAY)/code.c
 BIN:=$(DAY)/app.out
 DATA:=$(DAY)/input
+TASK:=$(DAY)/task.md
 
 all:
 	$(CC) $(CC_FLAGS) $(SRC) -o $(BIN)
@@ -21,6 +22,18 @@ ifeq (,$(wildcard $(DATA)))
 	$(TIME) ./$(BIN)
 else
 	$(TIME) $(SHELL) -c '$(CAT) $(DATA) | ./$(BIN)'
+endif
+
+create:
+ifeq (,$(wildcard $(SRC)))
+	aoc -d $(DAY) -y 2021 r > tmp
+	aoc -d $(DAY) -y 2021 d
+	mkdir $(DAY)
+	cp template.c $(SRC)
+	mv input $(DATA)
+	mv tmp $(TASK)
+else
+	$(error Structure for day $(DAY) already exists)
 endif
 
 clean:
