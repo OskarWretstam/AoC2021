@@ -13,7 +13,7 @@ SHELL:=/usr/bin/sh
 # Structure
 SRC:=$(DAY)/code.c
 BIN:=$(DAY)/app.out
-DATA:=$(DAY)/data.txt
+DATA:=$(DAY)/input
 
 all:
 	$(CC) $(CC_FLAGS) $(SRC) -o $(BIN)
