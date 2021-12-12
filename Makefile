@@ -3,7 +3,7 @@ DAY?=01
 
 # Compiler
 CC:=gcc
-CC_FLAGS:=-O3
+CC_FLAGS:=-O3 -lm
 
 # Tools
 TIME:=/usr/bin/time -p
