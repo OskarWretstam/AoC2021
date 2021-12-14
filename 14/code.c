@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
    }
 
 
-   // Find mapping indicies, adding the char will create a new and existing pair
+   // Find mapping indicies, adding the char will create two already existing pairs
    int mapped;
    char tmp1[2], tmp2[2];
 
@@ -76,8 +76,7 @@ int main(int argc, char* argv[])
       }
    }
 
-   // Setup the working copy, does not not to be a complete struct array but did not bother in the end
-   memset(bb, 0, MAX_BINS*sizeof(b_t));
+   // Setup the working copy, does not need to be a complete struct array but did not bother in the end
    memcpy(bb, b, MAX_BINS*sizeof(b_t));
 
    // Bins for counting added characters
@@ -109,14 +108,10 @@ int main(int argc, char* argv[])
    {
       for(int j = 0; j < nof; j++)
       {
-         if(b[j].cnt)
-         {
-            bb[b[j].map_to[0]].cnt += b[j].cnt;
-            bb[b[j].map_to[1]].cnt += b[j].cnt;
-            bbb[b[j].add-'A'] += b[j].cnt;
-
-            b[j].cnt = 0;
-         }
+         bb[b[j].map_to[0]].cnt += b[j].cnt;
+         bb[b[j].map_to[1]].cnt += b[j].cnt;
+         bbb[b[j].add-'A'] += b[j].cnt;
+         b[j].cnt = 0;
       }
 
       for(int j = 0; j < nof; j++)
