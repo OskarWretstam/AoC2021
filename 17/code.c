@@ -19,7 +19,7 @@ int f(c_t vel, int *y_max)
    c_t pos = {0, 0};
    *y_max = 0;
 
-   while(pos.x + vel.x < interv[1] && pos.y + vel.y > interv[2])
+   while(pos.x < interv[1] && pos.y > interv[2])
    {
       pos.x += vel.x;
       pos.y += vel.y;
