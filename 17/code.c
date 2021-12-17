@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #define LINE 50
 
@@ -64,12 +65,11 @@ int main(int argc, char* argv[])
    }
 
    c_t v0;
-   int y_max, ym = 0;
-   int cnt = 0;
+   int y_max, ym = 0, cnt = 0;
 
-   for(int x = 0; x <= interv[1]; x++)
+   for(int x = (int) sqrt(2*interv[0]); x <= interv[1]; x++)
    {
-      for(int y = interv[2]; y <= 150; y++)
+      for(int y = interv[2]; y <= -interv[2]; y++)
       {
          v0.x = x;
          v0.y = y;
